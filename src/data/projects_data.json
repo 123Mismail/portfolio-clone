@@ -1,0 +1,47 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "name": "Portfolio Website",
+        "description": "A personal portfolio website to showcase projects and skills.",
+        "technologies": ["HTML", "CSS", "JavaScript"],
+        "url": "https://example.com/portfolio"
+      },
+      {
+        "id": 2,
+        "name": "E-commerce Store",
+        "description": "An online store with a responsive design and shopping cart functionality.",
+        "technologies": ["React", "Redux", "SASS"],
+        "url": "https://example.com/ecommerce"
+      },
+      {
+        "id": 3,
+        "name": "Blog Platform",
+        "description": "A blogging platform with user authentication and content management features.",
+        "technologies": ["Vue.js", "Vuex", "Bootstrap"],
+        "url": "https://example.com/blog"
+      },
+      {
+        "id": 4,
+        "name": "Weather App",
+        "description": "A weather application that provides real-time weather information using a third-party API.",
+        "technologies": ["Angular", "RxJS", "Angular Material"],
+        "url": "https://example.com/weather"
+      },
+      {
+        "id": 5,
+        "name": "Chat Application",
+        "description": "A real-time chat application with support for multiple rooms and user notifications.",
+        "technologies": ["Svelte", "Socket.io", "Tailwind CSS"],
+        "url": "https://example.com/chat"
+      },
+      {
+        "id": 6,
+        "name": "Task Management Tool",
+        "description": "A tool for managing tasks with features like task creation, assignment, and progress tracking.",
+        "technologies": ["Ember.js", "Handlebars", "Bulma"],
+        "url": "https://example.com/tasks"
+      }
+    ]
+  }
+  
