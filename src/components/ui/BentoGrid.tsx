@@ -7,7 +7,7 @@ import Lottie from "react-lottie";
 
 import { cn } from "@/lib/utils";
 
-
+import { GrDownload } from "react-icons/gr";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
@@ -53,8 +53,8 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
+  const leftLists = ["ReactJS", "Nextjs", "Typescript"];
+  const rightLists = ["Tailwind Css", "Javascript", "Sanity"];
 
   const [copied, setCopied] = useState(false);
 
@@ -74,6 +74,17 @@ export const BentoGridItem = ({
     console.log("copy clicked")
   };
 
+  const handleDownloadCv = () => {
+    const link = document.createElement("a");
+    link.href = "/myResume.pdf"; // Ensure the file is in the public folder
+    link.download = "My_CV.pdf"; // Name of the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  
+    alert("CV downloaded successfully! 🎉");
+  };
+  
   return (
     <div
       className={cn(
@@ -143,9 +154,9 @@ export const BentoGridItem = ({
 
           {/* Tech stack list div */}
           {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
+            <div className="flex gap-1 lg:gap-2 w-fit absolute right-3 lg:right-2 top-0  ">
               {/* tech stack lists */}
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
+              <div className="flex flex-col gap-3 md:gap-1 ">
                 {leftLists.map((item, i) => (
                   <span
                     key={i}
@@ -157,8 +168,8 @@ export const BentoGridItem = ({
                 ))}
                 <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
               </div>
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+              <div className="flex flex-col gap-3 md:gap-3 lg:gap-2 ">
+                <span className="  lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
@@ -172,13 +183,13 @@ export const BentoGridItem = ({
             </div>
           )}
           {id === 6 && (
-            <div className="mt-5 relative">
+            <div className="mt-5 relative   md:flex  gap-2">
               {/* button border magic from tailwind css buttons  */}
               {/* add rounded-md h-8 md:h-8, remove rounded-full */}
               {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
               {/* add handleCopy() for the copy the text */}
               <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
+                className={`absolute -bottom-5 right-0  ${copied ? "block" : "block"
                   }`}
               >
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
@@ -186,10 +197,17 @@ export const BentoGridItem = ({
               </div>
 
               <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
+                title={copied ? "Email is Copied!" : "Copy email"}
                 icon={<IoCopyOutline />}
                 position="left"
                 handleOnClick={handleCopy}
+                otherClasses="!bg-[#161A31]"
+              />
+              <MagicButton
+                title={"My CV"}
+                icon={<GrDownload />}
+                position="left"
+                handleOnClick={handleDownloadCv}
                 otherClasses="!bg-[#161A31]"
               />
             </div>
