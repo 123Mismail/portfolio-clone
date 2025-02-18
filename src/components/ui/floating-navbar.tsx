@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -23,7 +23,7 @@ export const FloatingNav = ({
   const { scrollYProgress } = useScroll();
 
   const [visible, setVisible] = useState(false);
-
+  const [handelContactBtn , setHAndelContactBtn]=useState<(() => void) | null>(null)
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
     if (typeof current === "number") {
@@ -40,12 +40,15 @@ export const FloatingNav = ({
       }
     }
   });
-
-  const handelContactButton = () => {
-    const phoneNumber = "+923483144231"; // Replace with your WhatsApp number
-    const whatsappURL = `https://wa.me/${phoneNumber}`;
-    window.open(whatsappURL, "_blank");
-  };
+  
+  useEffect(()=>
+  {
+    setHAndelContactBtn (() => () => {
+      const phoneNumber = "+923483144231"; // Replace with your WhatsApp number
+      const whatsappURL = `https://wa.me/${phoneNumber}`;
+      window.open(whatsappURL, "_blank");
+    });
+  },[])
   
 
   return (
@@ -72,7 +75,7 @@ export const FloatingNav = ({
           <div >
           {
             navItem.name=="Contact" ? <span className="cursor-pointer hover:text-neutral-300 duration-200 text-neutral-100 pr-3"
-             onClick={()=>handelContactButton()}
+             onClick={()=>handelContactBtn!()}
             >Contact</span>:
             <Link
             key={`link=${idx}`}

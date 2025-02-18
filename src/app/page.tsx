@@ -1,4 +1,4 @@
-"use client";
+ "use client"
 
 import { navItems } from "@/data";
 
@@ -10,7 +10,7 @@ import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import { FloatingDockFooter } from "@/components/ui/FloatingFooter";
+ 
  
 
 const Home = () => {
@@ -24,8 +24,7 @@ const Home = () => {
         <Clients />
         <Experience />
         <Approach />
-        {/* <FloatingDockFooter/>  */}
-        {/* <Footer /> */}
+       
       </div>
     </main>
   );

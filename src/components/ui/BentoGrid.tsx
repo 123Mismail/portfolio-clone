@@ -1,17 +1,18 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
 // Also install this npm i --save-dev @types/react-lottie
-import Lottie from "react-lottie";
+// const Lottie = dynamic(() => import('react-lottie'), { ssr: false });
 
 import { cn } from "@/lib/utils";
 
 import { GrDownload } from "react-icons/gr";
 import { BackgroundGradientAnimation } from "./GradientBg";
-import GridGlobe from "./GridGlobe";
+// import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
+// import dynamic from "next/dynamic";
 
 export const BentoGrid = ({
   className,
@@ -55,17 +56,17 @@ export const BentoGridItem = ({
 }) => {
   const leftLists = ["ReactJS", "Nextjs", "Typescript"];
   const rightLists = ["Tailwind Css", "Javascript", "Sanity"];
-
+  const [handleDownloadCv, setHandleDownloadCv] = useState<(() => void) | null>(null);
   const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  // const defaultOptions = {
+  //   loop: copied,
+  //   autoplay: copied,
+  //   animationData: animationData,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
 
   const handleCopy = () => {
     const text = "musafirbaltistani786@gmail.com";
@@ -73,18 +74,17 @@ export const BentoGridItem = ({
     setCopied(true);
     console.log("copy clicked")
   };
-
-  const handleDownloadCv = () => {
-    const link = document.createElement("a");
-    link.href = "https://drive.google.com/file/d/1OVIwVfq6hXSv2WSqGxLaIvFYdnTKRJ9L/view"; // Ensure the file is in the public folder
-    link.target="_blank";
-    link.download = "My_CV.pdf"; // Name of the downloaded file
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  
-   
-  };
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      setHandleDownloadCv(() => () => {
+        const link = document.createElement("a");
+        link.href = "https://drive.google.com/uc?export=download&id=1OVIwVfq6hXSv2WSqGxLaIvFYdnTKRJ9L";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    }
+  }, []);
   
   return (
     <div
@@ -151,7 +151,7 @@ export const BentoGridItem = ({
           </div>
 
           {/* for the github 3d globe */}
-          {id === 2 && <GridGlobe />}
+          {/* {id === 2 && <GridGlobe />} */}
 
           {/* Tech stack list div */}
           {id === 3 && (
@@ -194,7 +194,7 @@ export const BentoGridItem = ({
                   }`}
               >
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
+                {/* <Lottie options={defaultOptions} height={200} width={400} /> */}
               </div>
 
               <MagicButton
@@ -208,7 +208,7 @@ export const BentoGridItem = ({
                 title={"My CV"}
                 icon={<GrDownload />}
                 position="left"
-                handleOnClick={handleDownloadCv}
+                handleOnClick={()=>handleDownloadCv!()}
                 otherClasses="!bg-[#161A31]"
               />
             </div>
