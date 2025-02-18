@@ -76,13 +76,14 @@ export const BentoGridItem = ({
 
   const handleDownloadCv = () => {
     const link = document.createElement("a");
-    link.href = "/myResume.pdf"; // Ensure the file is in the public folder
+    link.href = "https://drive.google.com/file/d/1OVIwVfq6hXSv2WSqGxLaIvFYdnTKRJ9L/view"; // Ensure the file is in the public folder
+    link.target="_blank";
     link.download = "My_CV.pdf"; // Name of the downloaded file
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   
-    alert("CV downloaded successfully! 🎉");
+   
   };
   
   return (
