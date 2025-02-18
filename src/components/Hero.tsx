@@ -36,8 +36,10 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Dynamic Webpage Application 
+          <p className="uppercase tracking-widest text-lg font-medium text-center text-blue-100 max-w-80">
+          "Welcome to my portfolio"
+
+
           </p>
 
          
@@ -46,7 +48,7 @@ const Hero = () => {
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
 
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+          <p className="text-center md:tracking-wider mb-4 text-lg md:text-2xl lg:text-4xl">
             Hi! I&apos;m Muhammad Ismail, a Next.js Developer.
           </p>
 

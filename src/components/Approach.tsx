@@ -5,7 +5,7 @@ import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 
 const Approach = () => {
   return (
-    <section className="w-full py-20 sm:mb-56 mb-56 ">
+    <section className="w-full      ">
       <h1 className="heading">
         My <span className="text-purple">approach</span>
       </h1>
@@ -197,6 +197,7 @@ export const Icon = ({ className, ...rest }: any) => {
       {...rest}
     >
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-    </svg>
+    </svg> 
+    
   );
 };
