@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { GrDownload } from "react-icons/gr";
 import { BackgroundGradientAnimation } from "./GradientBg";
 // import GridGlobe from "./GridGlobe";
-import animationData from "@/data/confetti.json";
+ 
 import MagicButton from "./MagicButton";
 // import dynamic from "next/dynamic";
 
@@ -58,15 +58,7 @@ export const BentoGridItem = ({
   const rightLists = ["Tailwind Css", "Javascript", "Sanity"];
   const [handleDownloadCv, setHandleDownloadCv] = useState<(() => void) | null>(null);
   const [copied, setCopied] = useState(false);
-
-  // const defaultOptions = {
-  //   loop: copied,
-  //   autoplay: copied,
-  //   animationData: animationData,
-  //   rendererSettings: {
-  //     preserveAspectRatio: "xMidYMid slice",
-  //   },
-  // };
+ 
 
   const handleCopy = () => {
     const text = "musafirbaltistani786@gmail.com";
@@ -150,10 +142,7 @@ export const BentoGridItem = ({
             {title}
           </div>
 
-          {/* for the github 3d globe */}
-          {/* {id === 2 && <GridGlobe />} */}
-
-          {/* Tech stack list div */}
+          
           {id === 3 && (
             <div className="flex gap-1 lg:gap-2 w-fit absolute right-3 lg:right-2 top-0  ">
               {/* tech stack lists */}
@@ -185,16 +174,12 @@ export const BentoGridItem = ({
           )}
           {id === 6 && (
             <div className="mt-5 relative   md:flex  gap-2">
-              {/* button border magic from tailwind css buttons  */}
-              {/* add rounded-md h-8 md:h-8, remove rounded-full */}
-              {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
-              {/* add handleCopy() for the copy the text */}
+               
               <div
                 className={`absolute -bottom-5 right-0  ${copied ? "block" : "block"
                   }`}
               >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
-                {/* <Lottie options={defaultOptions} height={200} width={400} /> */}
+                 
               </div>
 
               <MagicButton

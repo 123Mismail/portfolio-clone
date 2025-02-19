@@ -1,10 +1,10 @@
-"use client";
+ 
 
 import { FaLocationArrow } from "react-icons/fa6";
 
 import { projects } from "@/data";
 import { PinContainer } from "./ui/Pin";
- console.log("Projects" ,projects[0].link)
+ 
 const RecentProjects = () => {
   return (
     <div className="py-20" id="projects">
